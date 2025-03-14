@@ -12,5 +12,5 @@ EXPOSE 3306
 # Volume para persistência de dados
 VOLUME ["/var/lib/mysql"]
 
-# Comando para iniciar o MySQL
-CMD ["mysqld"]
+# Copia o arquivo SQL para o contêiner
+COPY sql_data.sql /docker-entrypoint-initdb.d/
