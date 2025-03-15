@@ -11,6 +11,7 @@ EXPOSE 3306
 
 # Volume para persistência de dados
 VOLUME ["/var/lib/mysql"]
+RUN echo "[mysqld]\nbind-address=0.0.0.0" >> /etc/mysql/my.cnf
 
 # Copia o arquivo SQL para o contêiner
 COPY sql_data.sql /docker-entrypoint-initdb.d/
